@@ -4,6 +4,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 
+data class PeopleApiResponse(
+    val count: Int,
+    val next: String,
+    val previous: Any,
+    val results: List<StarData>
+)
+
 @Entity
 data class StarData(
     @PrimaryKey(autoGenerate = true)

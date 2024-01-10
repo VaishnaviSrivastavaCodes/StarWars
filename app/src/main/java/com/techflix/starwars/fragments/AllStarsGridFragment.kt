@@ -30,6 +30,7 @@ class AllStarsGridFragment : Fragment(R.layout.fragment_all_stars_grid) {
         layoutBinding = DataBindingUtil.inflate(
             layoutInflater, R.layout.fragment_all_stars_grid, container, false
         )
+
         return layoutBinding.root
     }
 

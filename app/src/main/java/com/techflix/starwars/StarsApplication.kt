@@ -2,25 +2,25 @@ package com.techflix.starwars
 
 import android.app.Application
 import com.techflix.starwars.api.RetrofitHelper
-import com.techflix.starwars.api.StarService
-import com.techflix.starwars.database.StarDatabase
-import com.techflix.starwars.repository.StarsRepository
+import com.techflix.starwars.api.StarWarsService
+import com.techflix.starwars.database.StarWarsDatabase
+import com.techflix.starwars.repository.StarWarsRepository
 
 class StarsApplication : Application() {
 
-    lateinit var starsRepository: StarsRepository
+    lateinit var starsRepository: StarWarsRepository
     override fun onCreate() {
         super.onCreate()
         initialize()
     }
 
     private fun initialize() {
-        val starService = RetrofitHelper.getInstance().create(StarService::class.java)
-        val starDatabase = StarDatabase.getDatabase(applicationContext)
-        starsRepository = StarsRepository(starService, starDatabase)
+        val starService = RetrofitHelper.getInstance().create(StarWarsService::class.java)
+        val starDatabase = StarWarsDatabase.getDatabase(applicationContext)
+        starsRepository = StarWarsRepository(starService, starDatabase)
     }
 
-    fun getRepository(): StarsRepository {
+    fun getRepository(): StarWarsRepository {
         if (this::starsRepository.isInitialized.not()){
             onCreate()
         }

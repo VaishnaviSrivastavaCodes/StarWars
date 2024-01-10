@@ -3,16 +3,16 @@ package com.techflix.starwars
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.techflix.starwars.api.RetrofitHelper
-import com.techflix.starwars.api.StarService
 import com.techflix.starwars.fragments.AllStarsGridFragment
-import com.techflix.starwars.repository.StarsRepository
+import com.techflix.starwars.fragments.BottomSheetSortFilterFragment
 import com.techflix.starwars.viewmodels.StarViewModel
 import com.techflix.starwars.viewmodels.StarViewModelFactory
+import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -30,10 +30,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         starViewModel =
             ViewModelProvider(this, StarViewModelFactory(repository)).get(StarViewModel::class.java)
-        starViewModel.peopleLiveData.observe(this, Observer {
-            Log.d("Vaishnavi", it.toString())
-        })
-        starViewModel.getData()
+        starViewModel.getAllStarsData()
+        starViewModel.getAllFilmsData()
+        val sortBtn = findViewById<TextView>(R.id.sort)
+        sortBtn.apply {
+            setOnClickListener {
+                BottomSheetSortFilterFragment().apply {
+                    show(supportFragmentManager, "abc")
+                }
+            }
+        }
 
     }
 }
