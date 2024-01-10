@@ -8,7 +8,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.techflix.StarWars"
+        applicationId "com.techflix.starwars"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -32,7 +32,7 @@ android {
     }
 
     dataBinding {
-        enabled = true
+        enabled  true
     }
 }
 
@@ -59,6 +59,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    def fragment_version = "1.6.2"
+    def fragment_version = "1.2.2"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 }

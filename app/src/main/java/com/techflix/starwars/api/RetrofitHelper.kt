@@ -1,4 +1,4 @@
-package com.techflix.StarWars.api
+package com.techflix.starwars.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

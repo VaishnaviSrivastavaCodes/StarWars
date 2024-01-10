@@ -1,8 +1,8 @@
-package com.techflix.StarWars.viewmodels
+package com.techflix.starwars.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.techflix.StarWars.repository.StarsRepository
+import com.techflix.starwars.repository.StarsRepository
 
 class StarViewModelFactory(private val repository: StarsRepository): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

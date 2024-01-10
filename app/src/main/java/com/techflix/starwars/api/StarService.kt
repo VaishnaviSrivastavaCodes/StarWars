@@ -1,6 +1,6 @@
-package com.techflix.StarWars.api
+package com.techflix.starwars.api
 
-import com.techflix.StarWars.models.PeopleApiResponse
+import com.techflix.starwars.models.PeopleApiResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

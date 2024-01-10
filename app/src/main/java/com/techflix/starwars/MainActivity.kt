@@ -1,20 +1,18 @@
-package com.techflix.StarWars
+package com.techflix.starwars
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
-import com.techflix.StarWars.api.RetrofitHelper
-import com.techflix.StarWars.api.StarService
-import com.techflix.StarWars.fragments.AllStarsGridFragment
-import com.techflix.StarWars.repository.StarsRepository
-import com.techflix.StarWars.viewmodels.StarViewModel
-import com.techflix.StarWars.viewmodels.StarViewModelFactory
+import com.techflix.starwars.api.RetrofitHelper
+import com.techflix.starwars.api.StarService
+import com.techflix.starwars.fragments.AllStarsGridFragment
+import com.techflix.starwars.repository.StarsRepository
+import com.techflix.starwars.viewmodels.StarViewModel
+import com.techflix.starwars.viewmodels.StarViewModelFactory
 
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {

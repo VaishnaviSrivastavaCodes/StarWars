@@ -1,4 +1,4 @@
-package com.techflix.StarWars
+package com.techflix.starwars
 
 import org.junit.Test
 

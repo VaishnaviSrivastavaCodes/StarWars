@@ -1,7 +1,7 @@
-package com.techflix.StarWars.repository
+package com.techflix.starwars.repository
 
-import com.techflix.StarWars.api.StarService
-import com.techflix.StarWars.models.PeopleApiResponse
+import com.techflix.starwars.api.StarService
+import com.techflix.starwars.models.PeopleApiResponse
 
 class StarsRepository(private val starService: StarService) {
     suspend fun getAllStars(): PeopleApiResponse? {

@@ -1,10 +1,9 @@
-package com.techflix.StarWars.viewmodels
+package com.techflix.starwars.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.techflix.StarWars.models.PeopleApiResponse
-import com.techflix.StarWars.repository.StarsRepository
+import com.techflix.starwars.models.PeopleApiResponse
+import com.techflix.starwars.repository.StarsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

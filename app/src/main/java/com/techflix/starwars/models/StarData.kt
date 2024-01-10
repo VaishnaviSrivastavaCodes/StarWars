@@ -1,4 +1,4 @@
-package com.techflix.StarWars.models
+package com.techflix.starwars.models
 
 data class StarData(
     val birth_year: String,
