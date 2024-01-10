@@ -16,7 +16,11 @@
             android:id="@+id/star_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/black"
+            android:layout_margin="8dp"
             android:text="@{starName}"
+            android:textStyle="bold"
+            android:textColor="@color/design_default_color_on_primary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

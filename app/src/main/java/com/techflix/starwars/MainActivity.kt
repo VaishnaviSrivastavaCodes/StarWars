@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var starViewModel: StarViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val repository = (application as StarsApplication).starsRepository
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
@@ -26,13 +28,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
         }
 
-
-        val starService = RetrofitHelper.getInstance().create(StarService::class.java)
-        val repository = StarsRepository(starService)
         starViewModel =
             ViewModelProvider(this, StarViewModelFactory(repository)).get(StarViewModel::class.java)
         starViewModel.peopleLiveData.observe(this, Observer {
-            Log.d("Vaishnavi", it.results.toString())
+            Log.d("Vaishnavi", it.toString())
         })
         starViewModel.getData()
 
