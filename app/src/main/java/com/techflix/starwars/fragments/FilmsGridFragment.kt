@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -41,6 +42,8 @@ class FilmsGridFragment : Fragment() {
             StarViewModelFactory((requireActivity().application as StarsApplication).getRepository())
         ).get(StarViewModel::class.java)
         arguments?.getInt(ITEM_POSITION)?.let {
+            Toast.makeText(requireActivity(), getText(R.string.fetching_data), Toast.LENGTH_LONG)
+                .show()
             CoroutineScope(Dispatchers.IO).launch {
                 viewmodel.getAllFilmsData(viewmodel.peopleLiveData.value?.get(it)?.films)
             }

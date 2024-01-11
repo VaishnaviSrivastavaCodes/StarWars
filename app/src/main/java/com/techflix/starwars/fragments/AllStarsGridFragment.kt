@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.techflix.starwars.MainActivity
 import com.techflix.starwars.R
 import com.techflix.starwars.StarsApplication
 import com.techflix.starwars.databinding.FragmentAllStarsGridBinding
@@ -32,7 +33,6 @@ class AllStarsGridFragment : Fragment(R.layout.fragment_all_stars_grid), ItemCli
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-
         layoutBinding = DataBindingUtil.inflate(
             layoutInflater, R.layout.fragment_all_stars_grid, container, false
         )
@@ -53,7 +53,7 @@ class AllStarsGridFragment : Fragment(R.layout.fragment_all_stars_grid), ItemCli
                 layoutBinding.allStarsGrid.apply {
                     adapter = AllStarsGridAdapter(
                         context,
-                        it.map { starData -> starData.name ?: "" },
+                        it,
                         layoutInflater,
                         listener = this@AllStarsGridFragment
                     )
@@ -62,7 +62,7 @@ class AllStarsGridFragment : Fragment(R.layout.fragment_all_stars_grid), ItemCli
             sortId.observe(requireActivity()) {
                 sortList()
             }
-            filterId.observe(requireActivity()){
+            filterId.observe(requireActivity()) {
                 filterList()
             }
         }

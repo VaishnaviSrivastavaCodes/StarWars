@@ -12,11 +12,13 @@
         <GridView
             android:id="@+id/all_stars_grid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:numColumns="auto_fit"
-            android:paddingBottom="?attr/actionBarSize"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:background="@color/shimmerColor"
+            android:layout_marginBottom="@dimen/d8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -74,6 +74,11 @@ class BottomSheetSortFragment : BottomSheetSortFilterFragment() {
 //            getString(R.string.no_of_films)
 //    )
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        layoutBinding.titleText = "Sort"
+    }
+
     override fun actOnRadioGroup(i: Int) {
         super.actOnRadioGroup(i)
         viewmodel.updateSortRadioId(i)
@@ -85,6 +90,11 @@ class BottomSheetFilterFragment : BottomSheetSortFilterFragment() {
     override var optionsList = listOf(
         "Gender-Male", "Gender-Female", "Eye Color: Blue", "Eye Color: Brown", "Reset Filter",
     )
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        layoutBinding.titleText = "Filter"
+    }
 
     override fun actOnRadioGroup(i: Int) {
         super.actOnRadioGroup(i)

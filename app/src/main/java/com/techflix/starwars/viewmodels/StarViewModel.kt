@@ -15,10 +15,11 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
 
     var peopleLiveData = MutableLiveData<List<StarData>>()
     val filmsLiveData = MutableLiveData<List<FilmData>>()
-    var peopleList = listOf<StarData>()
-    var filmsList = listOf<FilmData>()
+    private var peopleList = listOf<StarData>()
+    private var filmsList = listOf<FilmData>()
     var sortId = MutableLiveData<Int>()
     var filterId = MutableLiveData<Int>()
+    var sortFilterVisible = MutableLiveData<Boolean>(true)
     suspend fun getAllStarsData() {
         viewModelScope.async(Dispatchers.IO) {
             repository.getAllStars()?.let {
@@ -43,14 +44,6 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
             filmsLiveData.postValue(filmsList)
         }
     }
-
-    //    getString(R.string.name),
-//    getString(R.string.name_rev),
-//    getString(R.string.birth_year),
-//    getString(R.string.age),
-//    getString(R.string.weight),
-//    getString(R.string.height),
-//    getString(R.string.no_of_films)
     fun sortList() {
         var starList = peopleLiveData.value as MutableList
         when (sortId.value) {
@@ -124,7 +117,7 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
         when (filterId.value) {
             0 -> {
                 starList.apply {
-                    filter { it.gender == "male" }.apply {
+                    filter { it.gender?.lowercase() == "male" }.apply {
                         peopleLiveData.postValue(this)
                     }
                 }
@@ -133,14 +126,18 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
 
             1 -> {
                 starList.apply {
-                    filter { it.gender == "female" }.apply { peopleLiveData.postValue(this) }
+                    filter { it.gender?.lowercase() == "female" }.apply {
+                        peopleLiveData.postValue(
+                            this
+                        )
+                    }
 
                 }
             }
 
             2 -> {
                 starList.apply {
-                    filter { it.eye_color == "blue" }.apply {
+                    filter { it.eye_color?.lowercase() == "blue" }.apply {
                         peopleLiveData.postValue(this)
                     }
 
@@ -149,15 +146,13 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
 
             3 -> {
                 starList.apply {
-                    filter { it.eye_color == "brown" }.apply {
+                    filter { it.eye_color?.lowercase() == "brown" }.apply {
                         peopleLiveData.postValue(this)
                     }
-
                 }
             }
 
             4 -> {
-
                 peopleLiveData.postValue(peopleList)
             }
         }
@@ -169,5 +164,9 @@ class StarViewModel(private val repository: StarWarsRepository) : ViewModel() {
 
     fun updateFilterId(j: Int) {
         filterId.postValue(j)
+    }
+
+    fun updateSortFilterVisibility(vis: Boolean){
+        sortFilterVisible.postValue(vis)
     }
 }

@@ -12,4 +12,11 @@
     <string name="weight">Weight</string>
     <string name="gender_male">Gender-Male</string>
     <string name="gender_female">Gender-Female</string>
+    <string name="birth_year_">BirthYear: %s</string>
+    <string name="height_">Height: %s</string>
+    <string name="gender_">Gender: %s</string>
+    <string name="eye_color_">Eye Color: %s</string>
+    <string name="hair_color_">Hair Color: %s</string>
+    <string name="fetching_data">Fetching data...</string>
+    <string name="exit_app">Exit App</string>
 </resources>
