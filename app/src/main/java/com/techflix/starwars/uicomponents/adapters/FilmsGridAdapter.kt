@@ -3,24 +3,19 @@ package com.techflix.starwars.uicomponents.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.techflix.starwars.R
+import com.techflix.starwars.databinding.ItemFilmsGridBinding
 import com.techflix.starwars.databinding.ItemGridAllStarsBinding
-import com.techflix.starwars.utils.ItemClickListener
+import com.techflix.starwars.models.FilmData
 
-
-class AllStarsGridAdapter(
-    private val context: Context,
-    private val list: List<String>,
-    private val layoutInflater: LayoutInflater,
-    private val listener: ItemClickListener,
-) :
-    BaseAdapter() {
-    private var mItemClickListener: ItemClickListener? = null
+class FilmsGridAdapter(
+    val context: Context,
+    val list: List<FilmData>,
+    private val layoutInflater: LayoutInflater
+) : BaseAdapter() {
     override fun getCount(): Int {
         return list.size
     }
@@ -34,14 +29,10 @@ class AllStarsGridAdapter(
     }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        val myItemView: ItemGridAllStarsBinding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.item_grid_all_stars, p2, false)
+        val myItemView: ItemFilmsGridBinding =
+            DataBindingUtil.inflate(layoutInflater, R.layout.item_films_grid, p2, false)
 //            LayoutInflater.from(context).inflate( p2, false)
-        myItemView.starNameText = list[p0]
-        myItemView.starName.setOnClickListener {
-            listener?.onItemClick(p0)
-        }
+        myItemView.filmNameText = list[p0].title
         return myItemView.root
     }
-
 }

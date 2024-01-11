@@ -21,7 +21,7 @@ class StarsApplication : Application() {
     }
 
     fun getRepository(): StarWarsRepository {
-        if (this::starsRepository.isInitialized.not()){
+        if (this::starsRepository.isInitialized.not()) {
             onCreate()
         }
         return starsRepository

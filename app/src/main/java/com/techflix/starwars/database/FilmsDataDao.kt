@@ -10,7 +10,7 @@ import com.techflix.starwars.models.FilmData
 @Dao
 interface FilmsDataDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveAllFilmsData(stars: List<FilmData>)
+    suspend fun saveFilmData(data:FilmData)
 
     @Query("SELECT * FROM FilmData")
     suspend fun getAllFilmsData(): List<FilmData>

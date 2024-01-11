@@ -3,24 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="filmNameText"
-            type="String" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/filmName"
+
+        <GridView
+            android:id="@+id/movies_grid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/purple_200"
-            android:layout_margin="8dp"
-            android:text="@{filmNameText}"
-            android:textStyle="bold"
-            android:textColor="@color/design_default_color_on_primary"
+            android:layout_height="wrap_content"
+            android:numColumns="auto_fit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

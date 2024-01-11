@@ -10,7 +10,7 @@ class NetworkUtils {
             return try {
                 val ipAddr = InetAddress.getByName("google.com").toString()
                 //You can replace it with your name
-                ipAddr.equals("")
+                ipAddr.equals("").not()
             } catch (e: Exception) {
                 false
             }
