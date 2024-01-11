@@ -46,18 +46,26 @@ class AllStarsGridFragment : Fragment(R.layout.fragment_all_stars_grid), ItemCli
             requireActivity(),
             StarViewModelFactory((requireActivity().application as StarsApplication).getRepository())
         ).get(StarViewModel::class.java)
-        viewmodel.peopleLiveData.observe(requireActivity(), Observer {
-            layoutBinding.allStarsGrid.apply {
-                adapter = AllStarsGridAdapter(
-                    context,
-                    it.map { starData -> starData.name ?: "" },
-                    layoutInflater,
-                    listener = this@AllStarsGridFragment
-                )
+        viewmodel.apply {
+            peopleLiveData.observe(
+                requireActivity()
+            ) {
+                layoutBinding.allStarsGrid.apply {
+                    adapter = AllStarsGridAdapter(
+                        context,
+                        it.map { starData -> starData.name ?: "" },
+                        layoutInflater,
+                        listener = this@AllStarsGridFragment
+                    )
+                }
+            }
+            sortId.observe(requireActivity()) {
+                sortList()
+            }
+            filterId.observe(requireActivity()){
+                filterList()
             }
         }
-
-        )
 
     }
 

@@ -12,14 +12,24 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/sort"
+        <Button
+            android:id="@+id/sortBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_sort"
-            android:drawablePadding="@dimen/cardview_default_radius"
             android:text="@string/sort"
+            android:onClick="sortClicked"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/filterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_filter"
+            android:text="@string/filter"
+            android:onClick="filterClicked"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -27,6 +37,7 @@
             android:id="@+id/fragment_container_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/sort" />
+            android:layout_marginTop="@dimen/cardview_default_radius"
+            app:layout_constraintTop_toBottomOf="@id/sortBtn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
